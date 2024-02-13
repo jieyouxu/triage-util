@@ -7,6 +7,11 @@ According to <https://forge.rust-lang.org/release/triage-procedure.html>, we
 mostly deal with three kinds of status labels: `S-waiting-on-review`,
 `S-waiting-on-author` and `S-blocked`.
 
+The thinking is, allow the tool to help collect links or PR numbers fulfilling
+the relevant critera via GitHub API, which will be dumped to some kind of
+template TOML file awaiting the triage team member to fill in as they are
+guided to perform PR triage actions.
+
 ### `S-waiting-on-review`
 
 Link:
@@ -63,3 +68,13 @@ a comment, that the `rustbot` command is at least syntactically valid.
 
 For valid labels, see e.g.
 <https://github.com/rust-lang/rust/blob/a84bb95a1f65bfe25038f188763a18e096a86ab2/triagebot.toml#L4>.
+
+## Other Ideas
+
+- PR for adoption:
+  <https://rust-lang.zulipchat.com/#narrow/stream/242269-t-release.2Ftriage/topic/29-01-2024.20to.2004-02-2024/near/420980432>
+
+## Prior Art
+
+- Triage dashboard: <https://triage.rust-lang.org/triage/rust-lang/rust>
+- triage-cli: <https://github.com/KittyBorgX/triage-cli>
