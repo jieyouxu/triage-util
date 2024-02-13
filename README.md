@@ -1,2 +1,3 @@
 # triage-util
-Utility for rust-lang/rust triaging
+
+Utility for [rust-lang/rust](https://github.com/rust-lang/rust) triaging.
