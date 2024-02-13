@@ -1,3 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
+mod pr_triage_report;
+
+fn main() {}
