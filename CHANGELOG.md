@@ -3,6 +3,10 @@
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+- Rework general infrastructure
+- Improve config handling
+- Removed dog-fooding experimental unused code
+
 ## [0.0.1] - 2024-02-13
 
 - Initial CI infrastructure setup

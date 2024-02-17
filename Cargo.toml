@@ -5,12 +5,24 @@ version = "0.0.1"
 edition = "2021"
 repository = "https://github.com/jieyouxu/triage-util"
 license = "MIT OR Apache-2.0"
-rust-version = "1.73"  # MSRV
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 time = { version = "0.3.34", features = ["macros", "formatting", "local-offset", "serde", "serde-human-readable"] }
+tracing = { version = "0.1.40", features = ["attributes"] }
+tracing-subscriber = { version = "0.3.18", features = [
+    "fmt",
+    "env-filter",
+    "std",
+    "registry",
+] }
+serde = { version = "1.0.196", features = ["derive"] }
+clap = { version = "4.4.18", features = ["derive"] }
+confique = { version = "0.2.5", default-features = false, features = ["toml"] }
+miette = { version = "7.1.0", features = ["fancy"] }
+indicatif = "0.17.7"
+thiserror = "1.0.57"
 
 # The profile that 'cargo dist' will build with
 [profile.dist]
@@ -39,3 +51,6 @@ pre-release-replacements = [
   {file="CHANGELOG.md", search="<!-- next-header -->", replace="<!-- next-header -->\n## [Unreleased] - ReleaseDate\n", exactly=1},
   {file="CHANGELOG.md", search="<!-- next-url -->", replace="<!-- next-url -->\n[Unreleased]: https://github.com/jieyouxu/CDLint/compare/{{tag_name}}...HEAD", exactly=1},
 ]
+
+[lints.clippy]
+enum-variant-names = "allow"
