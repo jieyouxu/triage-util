@@ -3,6 +3,8 @@
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.0.5] - 2024-02-18
+
 - Support remarks for PR triage entries
 
 ## [0.0.4] - 2024-02-18
@@ -27,7 +29,8 @@
 - Initial CI infrastructure setup
 
 <!-- next-url -->
-[Unreleased]: https://github.com/jieyouxu/triage-util/compare/v0.0.4...HEAD
+[Unreleased]: https://github.com/jieyouxu/triage-util/compare/v0.0.5...HEAD
+[0.0.5]: https://github.com/jieyouxu/triage-util/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/jieyouxu/triage-util/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/jieyouxu/triage-util/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/jieyouxu/triage-util/compare/v0.0.1...v0.0.2
