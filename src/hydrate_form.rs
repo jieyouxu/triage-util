@@ -221,6 +221,7 @@ fn generate_partially_filled_form(metadata: &Vec<AutomatablePullRequestMetadata>
         buf.push_str("last_activity_assignee = \n");
         buf.push_str("waiting_on = \n");
         buf.push_str("most_recent_activity = \n");
+        buf.push_str("remarks = \"\"\n");
         buf.push('\n');
     }
 

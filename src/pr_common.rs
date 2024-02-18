@@ -111,4 +111,5 @@ pub struct FullPullRequestMetadata {
     pub last_activity_assignee: NaiveDate,
     pub waiting_on: String,
     pub most_recent_activity: Activity,
+    pub remarks: String,
 }

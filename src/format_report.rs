@@ -34,6 +34,8 @@ pub struct TableEntry {
     pub waiting_on: String,
     #[tabled(rename = "Most recent activity kind")]
     pub most_recent_activity: Activity,
+    #[tabled(rename = "Remarks")]
+    pub remarks: String,
 }
 
 pub fn handle_format_report(
@@ -66,6 +68,7 @@ pub fn handle_format_report(
             last_activity_assignee: pr.last_activity_assignee,
             waiting_on: pr.waiting_on.to_string(),
             most_recent_activity: pr.most_recent_activity.clone(),
+            remarks: pr.remarks.clone(),
         })
         .collect::<Vec<_>>();
 

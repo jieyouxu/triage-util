@@ -3,6 +3,8 @@
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+- Support remarks for PR triage entries
+
 ## [0.0.4] - 2024-02-18
 
 - Add shorter aliases for subcommands
