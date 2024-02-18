@@ -3,6 +3,8 @@
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+- Add shorter aliases for subcommands
+
 ## [0.0.3] - 2024-02-18
 
 - Change `last_activity_on` to `last_activity_author` and

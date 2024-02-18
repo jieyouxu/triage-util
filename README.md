@@ -2,6 +2,20 @@
 
 Utility for [rust-lang/rust](https://github.com/rust-lang/rust) triaging.
 
+```
+Usage: triage-util <COMMAND>
+
+Commands:
+  generate-config  Generate a default configuration file under the same directory as the executable [aliases: cfg]
+  hydrate-form     Given a list of PR IDs, fetch their information, and generate a form with some of the information filled out. This information should be provided through the config file. You can specify the path for the template report [aliases: form]
+  format-report    Format a PR triage report in markdown using information from a fully filled out form [aliases: report]
+  help             Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+```
+
 ## Setup and Workflow
 
 This utility is designed to only *assist* in your
