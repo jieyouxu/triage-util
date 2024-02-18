@@ -1,6 +1,13 @@
+#![feature(let_chains)]
+#![feature(iter_intersperse)]
+#![feature(never_type)]
+
 mod cli;
 mod config;
+mod format_report;
+mod hydrate_form;
 mod logging;
+mod pr_common;
 
 use clap::Parser as ClapParser;
 use confique::{toml::FormatOptions, Config as DeriveConfig};
@@ -10,6 +17,8 @@ use tracing::*;
 use crate::cli::Cli;
 use crate::cli::Cmd;
 use crate::config::Config;
+use crate::format_report::handle_format_report;
+use crate::hydrate_form::handle_hydrate_form;
 
 fn main() -> miette::Result<()> {
     logging::setup_logging();
@@ -22,7 +31,7 @@ fn main() -> miette::Result<()> {
     debug!(?config_path);
 
     debug!("config exists: {}", config_path.exists());
-    let _config = if cli.command != Cmd::GenerateConfig {
+    let config = if cli.command != Cmd::GenerateConfig {
         info!("trying to read config from `{}`", config_path.display());
         if !config_path.exists() {
             info!("no existing config detected");
@@ -55,11 +64,14 @@ fn main() -> miette::Result<()> {
                 bail!("config.toml already exists!");
             }
         }
-        Cmd::GenerateTemplate { .. } => {
-            todo!()
+        Cmd::HydrateForm { out_form_path } => {
+            handle_hydrate_form(&config, out_form_path.as_path())?;
         }
-        Cmd::GenerateReport { .. } => {
-            todo!()
+        Cmd::FormatReport {
+            in_form_path,
+            out_report_path,
+        } => {
+            handle_format_report(&config, in_form_path.as_path(), out_report_path.as_path())?;
         }
     }
 

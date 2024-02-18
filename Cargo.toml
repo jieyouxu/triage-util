@@ -9,20 +9,28 @@ license = "MIT OR Apache-2.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-time = { version = "0.3.34", features = ["macros", "formatting", "local-offset", "serde", "serde-human-readable"] }
 tracing = { version = "0.1.40", features = ["attributes"] }
 tracing-subscriber = { version = "0.3.18", features = [
-    "fmt",
-    "env-filter",
-    "std",
-    "registry",
+  "fmt",
+  "env-filter",
+  "std",
+  "registry",
 ] }
-serde = { version = "1.0.196", features = ["derive"] }
+serde = { version = "1.0.196", features = ["derive", "std"] }
 clap = { version = "4.4.18", features = ["derive"] }
 confique = { version = "0.2.5", default-features = false, features = ["toml"] }
 miette = { version = "7.1.0", features = ["fancy"] }
 indicatif = "0.17.7"
 thiserror = "1.0.57"
+serde_json = { version = "1.0.113", features = ["preserve_order"] }
+graphql_client = { version = "0.13.0", features = ["reqwest-blocking"] }
+reqwest = { version = "0.11.24", features = ["json", "blocking"] }
+strum = "0.26"
+strum_macros = "0.26"
+chrono = { version = "0.4.34", features = ["serde"] }
+toml = "0.8.10"
+tabled = "0.15.0"
+toml_datetime = { version = "0.6.5", features = ["serde"] }
 
 # The profile that 'cargo dist' will build with
 [profile.dist]
@@ -38,18 +46,23 @@ ci = ["github"]
 # The installers to generate for each app
 installers = []
 # Target platforms to build apps for (Rust target-triple syntax)
-targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+targets = [
+  "aarch64-apple-darwin",
+  "x86_64-apple-darwin",
+  "x86_64-unknown-linux-gnu",
+  "x86_64-pc-windows-msvc",
+]
 # Publish jobs to run in CI
 pr-run-mode = "plan"
 
 [workspace.metadata.release]
 publish = false
 pre-release-replacements = [
-  {file="CHANGELOG.md", search="Unreleased", replace="{{version}}", min=1},
-  {file="CHANGELOG.md", search="\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly=1},
-  {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}", min=1},
-  {file="CHANGELOG.md", search="<!-- next-header -->", replace="<!-- next-header -->\n## [Unreleased] - ReleaseDate\n", exactly=1},
-  {file="CHANGELOG.md", search="<!-- next-url -->", replace="<!-- next-url -->\n[Unreleased]: https://github.com/jieyouxu/CDLint/compare/{{tag_name}}...HEAD", exactly=1},
+  { file = "CHANGELOG.md", search = "Unreleased", replace = "{{version}}", min = 1 },
+  { file = "CHANGELOG.md", search = "\\.\\.\\.HEAD", replace = "...{{tag_name}}", exactly = 1 },
+  { file = "CHANGELOG.md", search = "ReleaseDate", replace = "{{date}}", min = 1 },
+  { file = "CHANGELOG.md", search = "<!-- next-header -->", replace = "<!-- next-header -->\n## [Unreleased] - ReleaseDate\n", exactly = 1 },
+  { file = "CHANGELOG.md", search = "<!-- next-url -->", replace = "<!-- next-url -->\n[Unreleased]: https://github.com/jieyouxu/CDLint/compare/{{tag_name}}...HEAD", exactly = 1 },
 ]
 
 [lints.clippy]

@@ -6,6 +6,7 @@
 - Rework general infrastructure
 - Improve config handling
 - Removed dog-fooding experimental unused code
+- Implement basic functionality
 
 ## [0.0.1] - 2024-02-13
 

@@ -1,0 +1,27 @@
+query PullRequestMetadataQuery ($owner: String!, $repo: String!, $number: Int!) {
+    repository(owner: $owner, name: $repo) {
+        pullRequest(number: $number) {
+            number
+            title
+            closed
+            author {
+                login
+                __typename
+            }
+            assignees(first: 100) {
+                nodes {
+                    login
+                    __typename
+                }
+            }
+            createdAt
+            updatedAt
+            mergeable
+            labels(first: 100) {
+                nodes {
+                    name
+                }
+            }
+        }
+    }
+}
