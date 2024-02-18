@@ -4,6 +4,7 @@
 ## [Unreleased] - ReleaseDate
 
 - Fix indicator bar units
+- Drop `status_label` from table formatting
 
 ## [0.0.5] - 2024-02-18
 

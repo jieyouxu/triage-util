@@ -9,7 +9,7 @@ use tabled::{Table, Tabled};
 use tracing::*;
 
 use crate::config::Config;
-use crate::pr_common::{Activity, FullPullRequestMetadata, PullRequestNumber, StatusLabel};
+use crate::pr_common::{Activity, FullPullRequestMetadata, PullRequestNumber};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct TriagedPullRequests {
@@ -24,8 +24,6 @@ pub struct TableEntry {
     pub author: String,
     #[tabled(rename = "Assignees")]
     pub assignees: String,
-    #[tabled(rename = "Status")]
-    pub status_label: StatusLabel,
     #[tabled(rename = "Last activity date (author)")]
     pub last_activity_author: NaiveDate,
     #[tabled(rename = "Last activity date (assignee)")]
@@ -63,7 +61,6 @@ pub fn handle_format_report(
                 .cloned()
                 .intersperse(", ".to_string())
                 .collect::<String>(),
-            status_label: pr.status_label,
             last_activity_author: pr.last_activity_author,
             last_activity_assignee: pr.last_activity_assignee,
             waiting_on: pr.waiting_on.to_string(),
