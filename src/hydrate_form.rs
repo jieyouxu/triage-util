@@ -27,7 +27,7 @@ pub struct PullRequestMetadataQuery;
 
 pub fn handle_hydrate_form(config: &Config, out: &Path) -> miette::Result<()> {
     let pb = ProgressBar::new(config.pull_requests.len() as u64);
-    pb.set_style(ProgressStyle::with_template("fetching pull requests: {spinner:.green} [{elapsed_precise}] [{wide_bar:.cyan/blue}] {bytes}/{total_bytes} ({eta})")
+    pb.set_style(ProgressStyle::with_template("fetching pull requests: {spinner:.green} [{elapsed_precise}] [{wide_bar:.cyan/blue}] {human_pos}/{human_len} ({eta})")
         .unwrap()
         .with_key("eta", |state: &ProgressState, w: &mut dyn Write| write!(w, "{:.1}s", state.eta().as_secs_f64()).unwrap())
         .progress_chars("#>-"));

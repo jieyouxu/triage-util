@@ -3,6 +3,8 @@
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+- Fix indicator bar units
+
 ## [0.0.5] - 2024-02-18
 
 - Support remarks for PR triage entries
