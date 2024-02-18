@@ -192,10 +192,10 @@ const QUICK_REFERENCE: &str = "\
 // author = "jieyouxu"
 // assignees = ["a", "b", "c"]
 // status_label = "S-waiting-on-review"
-// last_activity_author = 
-// last_activity_assignee = 
-// waiting_on = 
-// most_recent_activity = 
+// last_activity_author =
+// last_activity_assignee =
+// waiting_on =
+// most_recent_activity =
 // ```
 fn generate_partially_filled_form(metadata: &Vec<AutomatablePullRequestMetadata>) -> String {
     let mut buf = String::new();
