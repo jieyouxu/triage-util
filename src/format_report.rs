@@ -18,19 +18,19 @@ pub struct TriagedPullRequests {
 
 #[derive(Debug, Tabled)]
 pub struct TableEntry {
-    #[tabled(rename = "PR number")]
+    #[tabled(rename = "PR #")]
     pub pr_number: String,
     #[tabled(rename = "Author")]
     pub author: String,
     #[tabled(rename = "Assignees")]
     pub assignees: String,
-    #[tabled(rename = "Last activity date (author)")]
+    #[tabled(rename = "Last act. (author)")]
     pub last_activity_author: NaiveDate,
-    #[tabled(rename = "Last activity date (assignee)")]
+    #[tabled(rename = "Last act. (assignee)")]
     pub last_activity_assignee: NaiveDate,
     #[tabled(rename = "Waiting on")]
     pub waiting_on: String,
-    #[tabled(rename = "Most recent activity kind")]
+    #[tabled(rename = "Activity")]
     pub most_recent_activity: Activity,
     #[tabled(rename = "Remarks")]
     pub remarks: String,
